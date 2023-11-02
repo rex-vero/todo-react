@@ -1,0 +1,58 @@
+.btn {
+    border: 1px solid rgb(14, 129, 14);
+    color: white;
+    background-color: rgb(14, 129, 14);
+    padding: 10px;
+    font-size: 1.2rem;
+    box-shadow: 0 0 10px black;
+    transition: 0.6s;
+}
+
+.btn:hover {
+    transition: 0.6s;
+    border: 1px solid rgb(255, 255, 255);
+    color: rgb(14, 129, 14);
+    background-color: white;
+}
+
+.input {
+    border: 1px solid black;
+    outline: none;
+    border-radius: 10px;
+    padding: 5px;
+    transition: 0.8s;
+    transform: scale(1);
+}
+.input:hover{
+    transition: 0.8s;
+    transform: scale(1.02);
+}
+.card{
+animation: card 5s ease-in-out 0s infinite alternate forwards;
+}
+@keyframes card {
+    from{
+        background-color: white;
+        box-shadow: 0 0 5px black;
+    }
+    to{
+        background-color: rgb(175, 170, 170);
+        box-shadow: 0px 5px 30px black;
+    }
+}
+.lable{
+    animation: lable 2s ease-in-out 0s infinite alternate forwards;
+    text-shadow: 0 0 10px black;
+}
+@keyframes lable {
+    from{color: rgb(0, 0, 0);}
+    to{color: rgb(255, 255, 255);}
+}
+.trash{
+    color: rgb(255, 0, 0);
+    font-size: 25px;
+    border:1px solid red;
+    padding: 0 2px;
+    border-radius: 50%;
+    cursor: pointer;
+}
