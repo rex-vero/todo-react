@@ -3,6 +3,7 @@ import styles from './Table.module.css'
 const Table = (props) => {
     const [job, setJobs] = useState('');
     const [days, setDays] = useState('');
+    const [edit, setEdit] = useState(false);
     const getIndex = (item) => {
         return props.data.indexOf(item) + 1;
     }
@@ -32,20 +33,24 @@ const Table = (props) => {
                 <table className='table table-dark table-striped-columns'>
                     <thead>
                         <tr>
-                            <th scope="col">Delete</th>
+                            <th className="text-center" scope="col">Edit</th>
                             <th scope="col">#</th>
                             <th scope="col">Jobs</th>
                             <th scope="col">Days</th>
+                            <th className="text-center" scope="col">Delete</th>
                         </tr>
                     </thead>
                     <tbody>
                         {props.data.map(item => {
                             return (
                                 <tr key={item.id}>
-                                    <td className="text-center"><a href="#" onClick={() => { trash(item) }} className={styles.trash}><i className='bi bi-x'></i></a></td>
+                                    <td className="text-center"><a href="#" onClick={() => { setEdit(item.id) }} className={styles.edit}><i className='bi bi-pencil-square'></i></a></td>
                                     <th scope="row">{getIndex(item)}</th>
-                                    <td>{item.job}</td>
-                                    <td>{item.days}</td>
+                                    {edit !== item.id && <td>{item.job}</td>}
+                                    {edit === item.id && <td><input /></td>}
+                                    {edit !== item.id && <td>{item.days}</td>}
+                                    {edit === item.id && <td><input /></td>}
+                                    <td className="text-center"><a href="#" onClick={() => { trash(item) }} className={styles.trash}><i className='bi bi-x'></i></a></td>
                                 </tr>
                             )
                         })

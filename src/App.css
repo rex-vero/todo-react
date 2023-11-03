@@ -1,7 +1,0 @@
-.App{
-  animation: app 3s linear 0s infinite alternate forwards;
-}
-@keyframes app {
-  from{background-color: rgb(255, 255, 255);}
-  to{background-color: rgb(255, 229, 195);}
-}

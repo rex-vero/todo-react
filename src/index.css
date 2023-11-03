@@ -10,9 +10,15 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  animation: body 3s linear 0s infinite alternate forwards;
 }
 
 code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
+}
+
+@keyframes body {
+  from{background-color: rgb(255, 255, 255);}
+  to{background-color: rgb(255, 229, 195);}
 }
