@@ -65,13 +65,39 @@ animation: card 5s ease-in-out 0s infinite alternate forwards;
 .edit{
     color: rgb(2, 200, 32);
     font-size: 20px;
-    border:1px solid rgb(2, 200, 32);;
+    border:1px solid rgb(2, 200, 32);
     padding: 5px;
     border-radius: 50%;
     cursor: pointer;
     transition: 0.4s;
 }
 .edit:hover{
+    transition: 0.4s;
+    background-color: rgb(2, 200, 32);
+    color: white;
+}
+.trash2{
+    color: rgb(255, 0, 0);
+    font-size: 25px;
+    padding: 0 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.trash2:hover{
+    transition: 0.4s;
+    background-color: rgb(255, 0, 0);
+    color: white;
+}
+.save{
+    color: rgb(2, 200, 32);
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 50%;
+    cursor: pointer;
+    transition: 0.4s;
+}
+.save:hover{
     transition: 0.4s;
     background-color: rgb(2, 200, 32);
     color: white;

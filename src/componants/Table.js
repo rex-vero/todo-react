@@ -11,6 +11,19 @@ const Table = (props) => {
         const deleter = props.data.filter(element => item.id !== element.id)
         props.updater(deleter);
     }
+    const handleEdit = (item) => {
+        setEdit(item.id);
+        setJobs(item.job);
+        setDays(item.days);
+    }
+    const save = () => {
+        const index = props.data.findIndex(item => item.id === edit);
+        const temp = [...props.data];
+        temp[index].job = job;
+        temp[index].days = days;
+        props.updater(temp);
+        setEdit(false);
+    }
     const handle = (e) => {
         e.preventDefault();
         const newItems = { id: crypto.randomUUID(), job, days }
@@ -44,13 +57,15 @@ const Table = (props) => {
                         {props.data.map(item => {
                             return (
                                 <tr key={item.id}>
-                                    <td className="text-center"><a href="#" onClick={() => { setEdit(item.id) }} className={styles.edit}><i className='bi bi-pencil-square'></i></a></td>
+                                    {edit !== item.id && <td className="text-center"><a href="#" onClick={() => { handleEdit(item) }} className={styles.edit}><i className='bi bi-pencil-square'></i></a></td>}
+                                    {edit === item.id && <td className="text-center"><a href="#" onClick={save} className={styles.save}><i className='bi bi-floppy'></i></a></td>}
                                     <th scope="row">{getIndex(item)}</th>
                                     {edit !== item.id && <td>{item.job}</td>}
-                                    {edit === item.id && <td><input /></td>}
+                                    {edit === item.id && <td><input type="text" value={job} className={styles.input} onChange={(e) => { setJobs(e.target.value) }} /></td>}
                                     {edit !== item.id && <td>{item.days}</td>}
-                                    {edit === item.id && <td><input /></td>}
-                                    <td className="text-center"><a href="#" onClick={() => { trash(item) }} className={styles.trash}><i className='bi bi-x'></i></a></td>
+                                    {edit === item.id && <td><input type="text" value={days} className={styles.input} onChange={(e) => { setDays(e.target.value) }} /></td>}
+                                    {edit !== item.id && <td className="text-center"><a href="#" onClick={() => { trash(item) }} className={styles.trash}><i className='bi bi-x'></i></a></td>}
+                                    {edit === item.id && <td className="text-center"><a href="#" onClick={() => { setEdit(false) }} className={styles.trash2}><i className='bi bi-x-octagon'></i></a></td>}
                                 </tr>
                             )
                         })
